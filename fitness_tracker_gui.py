@@ -71,30 +71,30 @@ def add_food():
     total_carbs += carbs
     total_fat += fat
 
-daily_log.append({
-    "food": food_name,
-    "grams": grams,
-    "calories": calories,
-    "protein": protein,
-    "carbs": carbs,
-    "fat": fat
-})
+    daily_log.append({
+        "food": food_name,
+        "grams": grams,
+        "calories": calories,
+        "protein": protein,
+        "carbs": carbs,
+        "fat": fat
+    })
 
-result_text.insert(
-    tk.END,
-    f"{food_name} | {grams}g | {calories:.2f} kcal | "
-    f"P: {protein:.2f}g | C: {carbs:.2f}g | F: {fat:.2f}g\n"
-    )
+    result_text.insert(
+        tk.END,
+        f"{food_name} | {grams}g | {calories:.2f} kcal | "
+        f"P: {protein:.2f}g | C: {carbs:.2f}g | F: {fat:.2f}g\n"
+        )
 
-totals_label.config(
-    text=f"Total Calories: {total_calories:.2f} | "
-        f"Protein: {total_protein:.2f}g | "
-        f"Carbs: {total_carbs:.2f}g | "
-        f"Fat: {total_fat:.2f}g"
-    )
+    totals_label.config(
+        text=f"Total Calories: {total_calories:.2f} | "
+            f"Protein: {total_protein:.2f}g | "
+            f"Carbs: {total_carbs:.2f}g | "
+            f"Fat: {total_fat:.2f}g"
+        )
 
-food_entry.delete(0, tk.END)
-grams_entry.delete(0, tk.END)
+    food_entry.delete(0, tk.END)
+    grams_entry.delete(0, tk.END)
 
 def save_report():
     global daily_log
@@ -140,8 +140,6 @@ def load_report():
             f"{entry['food']} | {entry['grams']}g | {entry['calories']:.2f} kcal | "
             f"P: {entry['protein']:.2f}g | C: {entry['carbs']:.2f}g | F: {entry['fat']:.2f}g\n"
         )
-
-    update_totals()
 
     messagebox.showinfo("Success", "Report loaded!")
 
